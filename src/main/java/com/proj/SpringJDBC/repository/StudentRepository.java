@@ -27,7 +27,7 @@ public class StudentRepository {
         String sql = "insert into student (studentNo, name, mark) values (?,?,?)";
 
         int rows = jdbc.update(sql, student.getStudentNo(), student.getName(), student.getMark());
-        System.out.println(rows + "Effected!");
+        System.out.println(rows + " Effected!");
     }
 
     public List<Student> findAll() {

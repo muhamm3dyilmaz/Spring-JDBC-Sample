@@ -16,7 +16,7 @@ public class SpringJdbcApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(SpringJdbcApplication.class, args);
 
 		Student student = context.getBean(Student.class);
-		student.setStudentNo(101);
+		student.setStudentNo(104);
 		student.setName("Muhammed");
 		student.setMark(100);
 		StudentService service = context.getBean(StudentService.class);
