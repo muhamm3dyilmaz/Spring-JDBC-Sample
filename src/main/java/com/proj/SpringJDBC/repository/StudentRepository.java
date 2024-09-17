@@ -1,6 +1,5 @@
 package com.proj.SpringJDBC.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +31,17 @@ public class StudentRepository {
 
     public List<Student> findAll() {
 
-        List<Student> students = new ArrayList<>();
-        return students;
+        String sql = "select * from student";
+
+        return jdbc.query(sql, (rs, rowNum) -> {
+
+            Student student = new Student();
+            student.setStudentNo(rs.getInt("studentNo"));
+            student.setName(rs.getString("name"));
+            student.setMark(rs.getInt("mark"));
+
+            return student;
+        });
     }
 
 }
